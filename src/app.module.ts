@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { BookModule } from './book/book.module';
+import { PrismaModule } from './prisma/prisma.module';
 
 
 @Module({
@@ -8,7 +9,9 @@ import { BookModule } from './book/book.module';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    BookModule
+    BookModule,
+    PrismaModule,
+    
   ],
   
 })

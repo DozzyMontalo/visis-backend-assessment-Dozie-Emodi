@@ -22,6 +22,17 @@ services:
     volumes:
       - test_pgdata:/var/lib/postgresql/data
 
+  book-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3001:3000'
+    env_file:
+      - .env
+    depends_on:
+      - dev-db
+
 volumes:
   pgdata: {}
   test_pgdata: {}

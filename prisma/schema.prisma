@@ -4,20 +4,39 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
-generator client {
-  provider = "prisma-client-js"
-}
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-model Book {
-  id        Int      @id @default(autoincrement())
-  title     String
-  publisher String
-  summary   String
+generator client {
+  provider = "prisma-client-js"
+}
 
+
+model Book {
+  id         Int      @id @default(autoincrement())
+  title      String
+  publisher  String   
+  summary    String?
+  chapters   Chapter[]
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  
+  @@index([publisher])
+  @@index([id])
   @@map("books")
+}
+
+model Chapter {
+  id       Int    @id @default(autoincrement())
+  bookId   Int
+  title    String  
+  content  String
+  book     Book   @relation(fields: [bookId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([bookId])
 }

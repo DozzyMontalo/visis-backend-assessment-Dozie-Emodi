@@ -17,11 +17,11 @@ describe('Book API e2e', () => {
     app = moduleRef.createNestApplication();
     app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
     await app.init();
-    await app.listen(3333);
+    await app.listen(3000);
 
     prisma = app.get(PrismaService);
     await prisma.cleanDb(); // Ensure your Prisma service has a cleanDb method for testing
-    pactum.request.setBaseUrl('http://localhost:3333');
+    pactum.request.setBaseUrl('http://localhost:3000');
   });
 
   afterAll(async () => {

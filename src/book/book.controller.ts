@@ -66,19 +66,21 @@ export class BookController {
     return this.bookService.findByPublisher(publisher);
   }
  
- @ApiOperation({ summary: 'Get book summary' })
- @ApiParam({ name: 'bookId', description: 'The ID of the book' })
- @ApiQuery({ name: 'chapterId', description: 'The ID of the chapter (optional)', required: false })
- @ApiOkResponse({ description: 'The book summary', type: String })
- @Get(':bookId/summary')
- async getBookSummary(@Param('bookId') bookId: string, @Query('chapterId') chapterId?: string) {
+
+@ApiOperation({ summary: 'Get book summary audio' })
+@ApiParam({ name: 'bookId', description: 'The ID of the book' })
+@ApiQuery({ name: 'chapterId', description: 'The ID of the chapter (optional)', required: false })
+@ApiOkResponse({ description: 'The book summary audio', type: String })
+@Get(':bookId/summary/audio')
+async getBookSummaryAudio(@Param('bookId') bookId: string, @Query('chapterId') chapterId?: string) {
   try {
-    const summary = await this.bookService.generateSummary(Number(bookId), chapterId ? Number(chapterId) : undefined);
-    return summary;
+    const result = await this.bookService.generateSummary(Number(bookId), chapterId ? Number(chapterId) : undefined);
+    return { result };
   } catch (error) {
-    return error.message;
+    return { error: error.message };
   }
 }
+
 
 @ApiOperation({ summary: 'Delete a book by ID' })
 @ApiParam({ name: 'id', description: 'The ID of the book to delete' })

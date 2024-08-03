@@ -5,6 +5,6 @@ import OpenAI from 'openai';
 
 @Module({
   controllers: [BookController],
-  providers: [BookService]
+  providers: [BookService, OpenAI]
 })
 export class BookModule {}

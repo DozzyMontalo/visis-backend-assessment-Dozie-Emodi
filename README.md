@@ -8,7 +8,7 @@ This is a [Nest](https://github.com/nestjs/nest) framework TypeScript starter re
 
 ## API Documentation
 
-You can view the API documentation at [http://localhost:3331/api](http://localhost:3331/api).
+You can view the API documentation at [API Documentation](http://localhost:3000/api).
 
 ## Prerequisites
 

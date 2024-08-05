@@ -31,7 +31,9 @@ yarn install
 
 ```
 Environment variables
+
 DATABASE_URL=postgresql://<username>:<password>@<host>:<port>/<database>?schema=public
+
 OPENAI_API_KEY=your-openai-api-key
 
 ```

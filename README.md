@@ -1,6 +1,6 @@
 # Description
 
-This is a [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository. This api includes library functionalities like; getting book summarry, and getting book by publisher and title, with a PostgreSQL database managed by Prisma.
+This is a [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository. This api includes library functionalities like; getting book summarry and audio (modelled with openAI), and getting book by publisher and title, with a PostgreSQL database managed by Prisma.
 
 ## Postman Collection
 

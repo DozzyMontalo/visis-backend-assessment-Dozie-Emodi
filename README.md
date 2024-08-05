@@ -1,10 +1,10 @@
 # Description
 
-This is a [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository. This application includes authentication, user management, and messaging functionalities, with a PostgreSQL database managed by Prisma.
+This is a [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository. This api includes library functionalities like; getting book summarry, and getting book by publisher and title, with a PostgreSQL database managed by Prisma.
 
 ## Postman Collection
 
-[postman collection](<../../../../../../ProgramData/dozie/Postman/app-11.6.1/book api.postman_collection.json>)
+[postman collection](book-api.postman_collection.json)
 
 ## API Documentation
 
@@ -29,11 +29,13 @@ yarn install
 
 ## setup
 
+```
 Environment variables
 DATABASE_URL=postgresql://<username>:<password>@<host>:<port>/<database>?schema=public
 OPENAI_API_KEY=your-openai-api-key
 
 ```
+
 Run migration and seed the database
 
 ```
@@ -52,6 +54,7 @@ docker-compose up -d
 
 start in prod
 docker run --env-file .env -p 3331:3000 nestjs-app
+
 ```
 
 ### Without Docker
@@ -63,13 +66,17 @@ Run migrations and seed the database: `npx prisma migrate dev`
 ### start application
 
 ```
+
 # development
+
 $ yarn run start
 
 # watch mode
+
 $ yarn run start:dev
 
 # production mode
+
 $ yarn run start:prod
 
 ```
@@ -83,14 +90,18 @@ $ yarn run test
 # e2e tests
 
 ```
+
 yarn run pretest:e2e
 
 yarn run test:e2e
+
 ```
 
 # test coverage
 
 $ yarn run test:cov
+
+```
 
 ```
 
